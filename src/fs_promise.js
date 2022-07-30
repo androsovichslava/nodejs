@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 
 async function reading() {
-    let data= await fs.readFile('readme.txt', 'utf-8');
+    let data= await fs.readFile('readme.txt', 'utf8');
     console.log(data);
 }
 
