@@ -26,3 +26,34 @@ let obj = {
 for (let key in obj) {
     fs.writeFileSync(key, obj[key]);
 }
+
+// Дан файл с текстом. Запустите таймер, который каждые 5 секунд в конец этого файла будет записывать восклицательный знак.
+let sign= '' 
+// setInterval(() => {
+//     sign+= '!';
+//     fs.writeFileSync('sign-file', sign);
+// }, 1000);
+
+
+// Дан файл, в тексте которого записано некоторое число. Напишите скрипт, который прочитает число из файла, прибавит к нему единицу и запишет новое число обратно в файл.
+let num = fs.readFileSync('number.txt', 'utf8');
+console.log(num);
+num = +num +1;
+try {
+    fs.writeFileSync('number.txt', num);
+} catch (e) {
+    console.log('Ошибка   '+e.name)
+}
+fs.writeFileSync('number.txt', num.toString());
+num = fs.readFileSync('number.txt', 'utf8');
+console.log(num);
+
+// Попробуйте прочитать несуществующий файл. Убедитесь, что при этом произойдет исключительная ситуация. Допишите ваш код так, чтобы он обрабатывал эту ситуацию.
+
+try {
+    fs.readFileSync('number.tx_', 'utf8');
+} catch (e) {
+    console.log('ошибка чтения файла');
+    console.log(e.name);
+
+}
